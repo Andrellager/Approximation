@@ -41,6 +41,7 @@ namespace Аpproximation
             chart1.Series[0].Points.DataBindXY(x, y);
             chart1.Series[1].Points.DataBindXY(x1, y1);
             label1.Text = null;
+            textBox1.Text = "0";
         }
 
         public Form1()
@@ -70,6 +71,7 @@ namespace Аpproximation
                 y.Add((float)Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value));
             }
             Appoximation();
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
             if (textBox1.Text == "0")
                 chart1.ChartAreas[0].AxisX.Maximum = 100;
             else
