@@ -57,6 +57,7 @@ namespace Аpproximation
             y1 = new List<float>();
             dataGridView1.ColumnCount = 2;
             label1.Text = null;
+            textBox1.Text = "0";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,7 +70,10 @@ namespace Аpproximation
                 y.Add((float)Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value));
             }
             Appoximation();
-            chart1.ChartAreas[0].AxisX.Maximum = 100;
+            if (textBox1.Text == "0")
+                chart1.ChartAreas[0].AxisX.Maximum = 100;
+            else
+                chart1.ChartAreas[0].AxisX.Maximum = Convert.ToInt32(textBox1.Text);
             x1.Add(0);x1.Add(Convert.ToInt32(chart1.ChartAreas[0].AxisX.Maximum));
             y1.Add(Convert.ToInt32(b));y1.Add(Convert.ToInt32(a * x1[1] + b));
             chart1.Series[0].Points.DataBindXY(x, y);
